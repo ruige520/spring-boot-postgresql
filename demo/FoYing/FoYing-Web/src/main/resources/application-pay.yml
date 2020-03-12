@@ -1,0 +1,24 @@
+pay-base:
+  # 微信支付有效天数（单位：天）
+  wxPayValidDays: 7
+  # 商家名称
+  businessName: 人保
+
+#微信支付配置
+wx:
+  pay:
+    #设置微信支付基础URL
+    payBaseUrl: https://api.mch.weixin.qq.com
+    #微信公众号或者小程序等的appid
+    appId: wx123456
+    #微信支付商户号
+    mchId: 123456
+    #微信支付商户密钥
+    mchKey: 
+    # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
+    keyPath: classpath:/wx/apiclient_cert.p12
+    # 签名类型
+    signType: MD5
+  #网页授权文件
+  verifyFile: MP_verify_LDOwVN8zGpvWT1Fd.txt
+

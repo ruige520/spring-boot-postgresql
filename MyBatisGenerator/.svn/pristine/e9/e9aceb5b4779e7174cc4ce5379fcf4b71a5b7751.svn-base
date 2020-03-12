@@ -1,0 +1,210 @@
+package com.pangu.foying.web.project.back.entity;
+
+import java.sql.Timestamp;
+
+public class OrderMenZhenPayOrderRecordRefund extends BaseEntity {
+    private String id;
+
+    private String orderId;
+
+    private String platformrefundtradeno;
+
+    private String refundOrderType;
+
+    private Integer refundMoney;
+
+    private String refundTransNo;
+
+    private Boolean refundState;
+
+    private String refundresult;
+
+    private String remark;
+
+    private Timestamp addTime;
+
+    private String addUserId;
+
+    private String addUserName;
+
+    private Timestamp modifyTime;
+
+    private String modifyUserId;
+
+    private String modifyName;
+
+    private Boolean deleteMark;
+
+    private String deleteName;
+
+    private Timestamp deleteTime;
+
+    public OrderMenZhenPayOrderRecordRefund(String id, String orderId, String platformrefundtradeno, String refundOrderType, Integer refundMoney, String refundTransNo, Boolean refundState, String refundresult, String remark, Timestamp addTime, String addUserId, String addUserName, Timestamp modifyTime, String modifyUserId, String modifyName, Boolean deleteMark, String deleteName, Timestamp deleteTime) {
+        this.id = id;
+        this.orderId = orderId;
+        this.platformrefundtradeno = platformrefundtradeno;
+        this.refundOrderType = refundOrderType;
+        this.refundMoney = refundMoney;
+        this.refundTransNo = refundTransNo;
+        this.refundState = refundState;
+        this.refundresult = refundresult;
+        this.remark = remark;
+        this.addTime = addTime;
+        this.addUserId = addUserId;
+        this.addUserName = addUserName;
+        this.modifyTime = modifyTime;
+        this.modifyUserId = modifyUserId;
+        this.modifyName = modifyName;
+        this.deleteMark = deleteMark;
+        this.deleteName = deleteName;
+        this.deleteTime = deleteTime;
+    }
+
+    public OrderMenZhenPayOrderRecordRefund() {
+        super();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId == null ? null : orderId.trim();
+    }
+
+    public String getPlatformrefundtradeno() {
+        return platformrefundtradeno;
+    }
+
+    public void setPlatformrefundtradeno(String platformrefundtradeno) {
+        this.platformrefundtradeno = platformrefundtradeno == null ? null : platformrefundtradeno.trim();
+    }
+
+    public String getRefundOrderType() {
+        return refundOrderType;
+    }
+
+    public void setRefundOrderType(String refundOrderType) {
+        this.refundOrderType = refundOrderType == null ? null : refundOrderType.trim();
+    }
+
+    public Integer getRefundMoney() {
+        return refundMoney;
+    }
+
+    public void setRefundMoney(Integer refundMoney) {
+        this.refundMoney = refundMoney;
+    }
+
+    public String getRefundTransNo() {
+        return refundTransNo;
+    }
+
+    public void setRefundTransNo(String refundTransNo) {
+        this.refundTransNo = refundTransNo == null ? null : refundTransNo.trim();
+    }
+
+    public Boolean getRefundState() {
+        return refundState;
+    }
+
+    public void setRefundState(Boolean refundState) {
+        this.refundState = refundState;
+    }
+
+    public String getRefundresult() {
+        return refundresult;
+    }
+
+    public void setRefundresult(String refundresult) {
+        this.refundresult = refundresult == null ? null : refundresult.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    public Timestamp getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Timestamp addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getAddUserId() {
+        return addUserId;
+    }
+
+    public void setAddUserId(String addUserId) {
+        this.addUserId = addUserId == null ? null : addUserId.trim();
+    }
+
+    public String getAddUserName() {
+        return addUserName;
+    }
+
+    public void setAddUserName(String addUserName) {
+        this.addUserName = addUserName == null ? null : addUserName.trim();
+    }
+
+    public Timestamp getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Timestamp modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public String getModifyUserId() {
+        return modifyUserId;
+    }
+
+    public void setModifyUserId(String modifyUserId) {
+        this.modifyUserId = modifyUserId == null ? null : modifyUserId.trim();
+    }
+
+    public String getModifyName() {
+        return modifyName;
+    }
+
+    public void setModifyName(String modifyName) {
+        this.modifyName = modifyName == null ? null : modifyName.trim();
+    }
+
+    public Boolean getDeleteMark() {
+        return deleteMark;
+    }
+
+    public void setDeleteMark(Boolean deleteMark) {
+        this.deleteMark = deleteMark;
+    }
+
+    public String getDeleteName() {
+        return deleteName;
+    }
+
+    public void setDeleteName(String deleteName) {
+        this.deleteName = deleteName == null ? null : deleteName.trim();
+    }
+
+    public Timestamp getDeleteTime() {
+        return deleteTime;
+    }
+
+    public void setDeleteTime(Timestamp deleteTime) {
+        this.deleteTime = deleteTime;
+    }
+}

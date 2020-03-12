@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人保俱乐部平台</title>
+    <link rel="stylesheet" href="../../static/lib/layui/css/layui.css">
+    <style>
+        .container {
+            min-width: 1280px;
+            background-image: url("../../static/images/login_content_bg_kp.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center -48px;
+        }
+
+        /***head***********/
+        .head {
+            background-color: #fff;
+
+        }
+
+        .head-wrapper {
+            box-sizing: border-box;
+            width: 1280px;
+            height: 90px;
+            line-height: 90px;
+            font-size: 24px;
+            color: #313131;
+            background-color: #fff;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
+
+        .head .webname {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .head .logo {
+            width: 42px;
+            height: 42px;
+        }
+
+        .head .contact {
+            float: right;
+            height: 100%;
+            font-size: 18px;
+            color: #ff7800;
+        }
+
+        .head .contact .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 12px;
+        }
+
+        /***content***********/
+        .content {
+            position: relative;
+            box-sizing: border-box;
+            width: 1280px;
+            height: 772px;
+            /*padding: 0 360px 0 260px;*/
+            margin-top: 170px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content > .icon {
+            margin-top: 200px;
+            margin-left: 10px;
+        }
+
+        /*.content .form-box {*/
+        /*position: absolute;*/
+        /*right: 360px;*/
+        /*top: 140px;*/
+        /*width: 370px;*/
+        /*height: 360px;*/
+        /*background-color: #fff;*/
+        /*padding: 30px;*/
+        /*z-index: 99999;*/
+        /*}*/
+
+        .content .form-box {
+            box-sizing: border-box;
+            width: 960px;
+            height: 550px;
+            z-index: 99999;
+            background-color: #fff;
+            background-image: url("../../static/images/login_form_bg.png");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            border-radius: 4px;
+            padding: 60px 66px 0 46px;
+            margin: 0 auto;
+            box-shadow: 3px 3px 7px rgba(0, 38, 114, .35);
+        }
+
+        .content .form-box .title {
+            font-size: 30px;
+            color: #333333;
+            margin-bottom: 32px;
+            font-weight: bold;
+            line-height: 1em;
+        }
+
+        .form-box-left {
+            float: left;
+            width: 402px;
+            height: 324px;
+            background-image: url("../../static/images/login_form_pic.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            margin-top: 56px;
+
+        }
+
+        .form-box-right {
+            float: right;
+            width: 360px;
+        }
+
+        .layui-form-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .layui-form-item .icon {
+            position: absolute;
+            top: 16px;
+            left: 18px;
+            width: 20px;
+            height: 24px;
+        }
+
+        .content .form-box input {
+            height: 56px;
+            font-size: 16px;
+            color: #535353;
+            border-color: #bfbfbf;
+            border-radius: 4px;
+            background-color: #fcfcfc;
+            padding-left: 58px;
+        }
+
+        .content .form-box input.captcha {
+            display: inline-block;
+            width: 60%;
+            margin-bottom: 0;
+        }
+
+        .content .form-box .captcha-img {
+            float: right;
+            width: 35%;
+            height: 56px;
+        }
+
+        .content .form-box .login-btn {
+            width: 100%;
+            height: 56px;
+            line-height: 56px;
+            font-size: 22px;
+            background-color: #029ef1;
+            border-radius: 4px;
+            margin-top: 18px;
+        }
+
+        /***foot******/
+        .foot {
+            height: 48px;
+            line-height: 48px;
+            background-color: #212327;
+            color: #c9c9c9;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .foot .address {
+            margin-left: 50px;
+        }
+
+        /*******placeholder******/
+        input::-webkit-input-placeholder {
+            color: rgba(102, 102, 102, .7);
+        }
+
+        input::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: rgba(102, 102, 102, .7);
+        }
+
+        input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: rgba(102, 102, 102, .7);
+        }
+
+        input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: rgba(102, 102, 102, .7);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="head layui-clear">
+        <div class="head-wrapper">
+            <!--<img class="logo" src="../../static/images/login_logo.png" alt="">-->
+            人保俱乐部平台
+            <div class="contact">
+                <img class="icon" src="../../static/images/login_contact_orange.png" alt="">
+                服务热线：0750-83812349
+            </div>
+        </div>
+    </div>
+
+    <div class="content layui-clear">
+        <!--<img class="icon" src="../../static/images/login_content_txt.png" alt="">-->
+
+        <div class="form-box layui-clear">
+            <div class="form-box-left"></div>
+            <div class="form-box-right">
+                <form class="layui-form" lay-filter="loginForm">
+                    <div class="title">用户登录</div>
+                    <div class="layui-form-item">
+                        <img class="icon" src="../../static/images/login_icon_user.png" alt="">
+                        <input name="username" id="username" class="layui-input" type="text" lay-verify="required"
+                               required autocomplete="off" placeholder="请输入账号"/>
+                    </div>
+                    <div class="layui-form-item">
+                        <img class="icon" src="../../static/images/login_icon_password.png" alt="">
+                        <input name="password" id="password" class="layui-input" type="password" lay-verify="required"
+                               required autocomplete="off" placeholder="请输入密码"/>
+                    </div>
+
+                    <div class="layui-form-item layui-clear">
+                        <img class="icon" src="../../static/images/login_icon_captcha.png" alt="">
+                        <input name="captcha" id="captcha" class="layui-input captcha" type="text" lay-verify="required"
+                               required autocomplete="off" placeholder="请输入验证码"/>
+                        <img id="captchaImg" class="captcha-img" src="" alt="">
+                    </div>
+                    <button class="layui-btn login-btn" lay-submit lay-filter="formSubmit">立即登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot ">
+        <span>开发企业：佛山市盘古开天信息科技有限公司</span>
+        <span class="address">联系地址：佛山市禅城区江湾三路28号广东（佛山）软件产业园</span>
+    </div>
+</div>
+
+<script src="../../static/lib/layui/layui.js"></script>
+<script src="../../static/lib/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/app.js"></script>
+
+<script>
+
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        //重新加载验证码图片
+        $('#captchaImg').click(function () {
+            $(this).attr('src', contextPath + '/foying/web/admin/Login/captchaImage?t=' + Math.random())
+        });
+        $('#captchaImg').click();
+
+        //监听表单提交
+        form.on('submit(formSubmit)', function (data) {
+            login(data.field);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        //登录接口
+        function login(field) {
+            var loading = layer.load();
+            utils.ajaxRequest({
+                url: contextPath + '/foying/web/admin/Login/login',
+                method: 'post',
+                data: {
+                    account: field.username,
+                    password: field.password,
+                    code: field.captcha
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.ResCode === '100') {
+                        //保存登录管理员信息
+                        localStorage.setItem('admin', JSON.stringify(data.entity));
+                        window.location.href = './Index.html';
+                        return;
+                    }
+                    $('#captchaImg').click();
+                    layer.alert(data.ResMsg, '提示');
+                },
+                error: function (err) {
+                    console.log(err);
+                    $('#captchaImg').click();
+                },
+                complete: function () {
+                    layer.close(loading);
+                }
+            })
+        }
+    });
+
+</script>
+</body>
+</html>

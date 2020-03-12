@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.admin.mapper.BaseManagerRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.admin.entity.BaseManagerRole" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="basemanagerid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="baseroleid" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, basemanagerid, baseroleid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRoleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_manager_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_manager_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_manager_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRoleExample" >
+    delete from base_manager_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRole" >
+    insert into base_manager_role (id, basemanagerid, baseroleid
+      )
+    values (#{id,jdbcType=VARCHAR}, #{baseManagerID,jdbcType=VARCHAR}, #{baseRoleID,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRole" >
+    insert into base_manager_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="baseManagerID != null" >
+        basemanagerid,
+      </if>
+      <if test="baseRoleID != null" >
+        baseroleid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="baseManagerID != null" >
+        #{baseManagerID,jdbcType=VARCHAR},
+      </if>
+      <if test="baseRoleID != null" >
+        #{baseRoleID,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRoleExample" resultType="java.lang.Integer" >
+    select count(*) from base_manager_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_manager_role
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseManagerID != null" >
+        basemanagerid = #{record.baseManagerID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseRoleID != null" >
+        baseroleid = #{record.baseRoleID,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_manager_role
+    set id = #{record.id,jdbcType=VARCHAR},
+      basemanagerid = #{record.baseManagerID,jdbcType=VARCHAR},
+      baseroleid = #{record.baseRoleID,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRole" >
+    update base_manager_role
+    <set >
+      <if test="baseManagerID != null" >
+        basemanagerid = #{baseManagerID,jdbcType=VARCHAR},
+      </if>
+      <if test="baseRoleID != null" >
+        baseroleid = #{baseRoleID,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.admin.entity.BaseManagerRole" >
+    update base_manager_role
+    set basemanagerid = #{baseManagerID,jdbcType=VARCHAR},
+      baseroleid = #{baseRoleID,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

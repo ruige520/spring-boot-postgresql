@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.admin.mapper.BaseOrganizeMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.admin.entity.BaseOrganize" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mainid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parentid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="organizename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="organizeencode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mobilephone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="wechat" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="telephone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addtime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="adduserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addusername" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifytime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="modifyuserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifyname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletemark" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="deletetime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sortcode" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mainid, parentid, organizename, organizeencode, name, mobilephone, wechat, telephone, 
+    email, fax, address, addtime, adduserid, addusername, modifytime, modifyuserid, modifyname, 
+    deletename, deletemark, deletetime, remark, sortcode
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganizeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_organize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_organize
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_organize
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganizeExample" >
+    delete from base_organize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganize" >
+    insert into base_organize (id, mainid, parentid, 
+      organizename, organizeencode, name, 
+      mobilephone, wechat, telephone, 
+      email, fax, address, 
+      addtime, adduserid, addusername, 
+      modifytime, modifyuserid, modifyname, 
+      deletename, deletemark, deletetime, 
+      remark, sortcode)
+    values (#{id,jdbcType=VARCHAR}, #{mainId,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, 
+      #{organizeName,jdbcType=VARCHAR}, #{organizeEnCode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{mobilePhone,jdbcType=VARCHAR}, #{weChat,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{addUserId,jdbcType=VARCHAR}, #{addUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUserId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
+      #{deleteName,jdbcType=VARCHAR}, #{deleteMark,jdbcType=BIT}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{sortCode,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganize" >
+    insert into base_organize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainId != null" >
+        mainid,
+      </if>
+      <if test="parentId != null" >
+        parentid,
+      </if>
+      <if test="organizeName != null" >
+        organizename,
+      </if>
+      <if test="organizeEnCode != null" >
+        organizeencode,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="mobilePhone != null" >
+        mobilephone,
+      </if>
+      <if test="weChat != null" >
+        wechat,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="addTime != null" >
+        addtime,
+      </if>
+      <if test="addUserId != null" >
+        adduserid,
+      </if>
+      <if test="addUserName != null" >
+        addusername,
+      </if>
+      <if test="modifyTime != null" >
+        modifytime,
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid,
+      </if>
+      <if test="modifyName != null" >
+        modifyname,
+      </if>
+      <if test="deleteName != null" >
+        deletename,
+      </if>
+      <if test="deleteMark != null" >
+        deletemark,
+      </if>
+      <if test="deleteTime != null" >
+        deletetime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sortCode != null" >
+        sortcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainId != null" >
+        #{mainId,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="organizeName != null" >
+        #{organizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizeEnCode != null" >
+        #{organizeEnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null" >
+        #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteName != null" >
+        #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sortCode != null" >
+        #{sortCode,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganizeExample" resultType="java.lang.Integer" >
+    select count(*) from base_organize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_organize
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainId != null" >
+        mainid = #{record.mainId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentId != null" >
+        parentid = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizeName != null" >
+        organizename = #{record.organizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizeEnCode != null" >
+        organizeencode = #{record.organizeEnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobilePhone != null" >
+        mobilephone = #{record.mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weChat != null" >
+        wechat = #{record.weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null" >
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fax != null" >
+        fax = #{record.fax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addTime != null" >
+        addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addUserId != null" >
+        adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addUserName != null" >
+        addusername = #{record.addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyTime != null" >
+        modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyUserId != null" >
+        modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyName != null" >
+        modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteName != null" >
+        deletename = #{record.deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteMark != null" >
+        deletemark = #{record.deleteMark,jdbcType=BIT},
+      </if>
+      <if test="record.deleteTime != null" >
+        deletetime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortCode != null" >
+        sortcode = #{record.sortCode,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_organize
+    set id = #{record.id,jdbcType=VARCHAR},
+      mainid = #{record.mainId,jdbcType=INTEGER},
+      parentid = #{record.parentId,jdbcType=INTEGER},
+      organizename = #{record.organizeName,jdbcType=VARCHAR},
+      organizeencode = #{record.organizeEnCode,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      mobilephone = #{record.mobilePhone,jdbcType=VARCHAR},
+      wechat = #{record.weChat,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      fax = #{record.fax,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      addusername = #{record.addUserName,jdbcType=VARCHAR},
+      modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      deletename = #{record.deleteName,jdbcType=VARCHAR},
+      deletemark = #{record.deleteMark,jdbcType=BIT},
+      deletetime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      sortcode = #{record.sortCode,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganize" >
+    update base_organize
+    <set >
+      <if test="mainId != null" >
+        mainid = #{mainId,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        parentid = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="organizeName != null" >
+        organizename = #{organizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizeEnCode != null" >
+        organizeencode = #{organizeEnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        mobilephone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null" >
+        wechat = #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        addtime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        adduserid = #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        addusername = #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        modifyname = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteName != null" >
+        deletename = #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        deletemark = #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteTime != null" >
+        deletetime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sortCode != null" >
+        sortcode = #{sortCode,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganize" >
+    update base_organize
+    set mainid = #{mainId,jdbcType=INTEGER},
+      parentid = #{parentId,jdbcType=INTEGER},
+      organizename = #{organizeName,jdbcType=VARCHAR},
+      organizeencode = #{organizeEnCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      mobilephone = #{mobilePhone,jdbcType=VARCHAR},
+      wechat = #{weChat,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      addtime = #{addTime,jdbcType=TIMESTAMP},
+      adduserid = #{addUserId,jdbcType=VARCHAR},
+      addusername = #{addUserName,jdbcType=VARCHAR},
+      modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{modifyName,jdbcType=VARCHAR},
+      deletename = #{deleteName,jdbcType=VARCHAR},
+      deletemark = #{deleteMark,jdbcType=BIT},
+      deletetime = #{deleteTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      sortcode = #{sortCode,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <!--BaseOrganize通用分页查询-->
+  <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.BaseOrganizeExample" >
+    SELECT
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    FROM base_organize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <bind name="key_offset" value="(pageIndex-1)*pageSize"></bind>
+    ORDER BY ModifyTime DESC LIMIT ${pageSize} OFFSET ${key_offset};
+  </select>
+</mapper>

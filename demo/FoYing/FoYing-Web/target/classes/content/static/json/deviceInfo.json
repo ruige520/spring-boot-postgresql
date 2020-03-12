@@ -1,0 +1,27 @@
+{
+  "code": 0,
+  "msg": "成功",
+  "count": 30,
+  "data": [
+    {
+      "socId": "13302855295",
+      "deviceId": "C9F00DE3"
+    }
+    ,{
+      "socId": "13318384863",
+      "deviceId": "c9f0073b"
+    }
+  ,{
+      "socId": "13318340851",
+      "deviceId": "c9f009a5"
+    }
+  ,{
+      "socId": "13380511709",
+      "deviceId": "C9F0050E"
+    }
+  ,{
+      "socId": "13380510830",
+      "deviceId": "C9F0074A"
+    }
+  ]
+}

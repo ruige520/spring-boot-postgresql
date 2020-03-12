@@ -1,0 +1,101 @@
+# 项目相关配置
+pangu:
+  # 名称
+  name: demo
+  # 文件上传路径（可以访问）
+  profile: D:/profile/${pangu.name}/
+  # 文件上传路径（无法访问）
+  profileNotAccess: D:/profileNotAccess/${pangu.name}/
+  # 域名
+  domainName: http://picc.bukeyun.com
+
+# 开发环境配置
+server:
+  port: 1250
+  servlet:
+    context-path: /${pangu.name}
+  tomcat:
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认200
+    max-threads: 200
+    # Tomcat启动初始化线程数，默认25
+    min-spare-threads: 25
+
+## 日志配置
+logging:
+  level:
+    com.pangu.foying: debug
+    org.springframework: WARN
+    org.spring.springboot.dao: debug
+
+# Spring配置
+spring:
+  application:
+    name: ${pangu.name}
+  http:
+    converters:
+      # 返回类型为application/json的数据使用fastjson
+      preferred-json-mapper: fastjson
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size:  30MB
+      max-request-size:  30MB
+  profiles:
+    active: druid,pay
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  # 定时任务
+  task:
+    scheduling:
+      pool:
+        size: 10
+
+# Shiro
+shiro:
+  user:
+    # 登录地址
+    loginUrl: /content/html/Home/Login.html
+    # 权限认证失败地址
+    unauthorizedUrl: /unauth
+  cookie:
+    # 设置sessionId名
+    sessionIdname: shiroSessionId
+    # 设置Cookie的域名 默认空，即当前访问的域名
+    domain:
+    # 设置cookie的有效访问路径
+    path: /${pangu.name}
+    # 设置HttpOnly属性
+    httpOnly: true
+    # 设置Cookie的过期时间，天为单位
+    maxAge: 7
+  session:
+    # Session超时时间（默认30分钟）
+    expireTime: 60
+    # 相隔多久检查一次session的有效性，默认就是10分钟
+    validationInterval: 10
+
+# 防止XSS攻击
+xss:
+  # 无需过滤的连接（多个用逗号分隔）
+  excludes: /foying/web/admin/Login/captchaImage,
+            /foying/web/back/PlaftormWorker/download/excel,
+            /foying/web/back/PlaftormWorker/importSale,
+            /foying/web/back/PlaftormWorker/importNotSale,
+            /foying/web/back/PlaftormDepartment/uploadPic,
+            /foying/web/back/PlaftormDoctor/uploadPic,
+            /foying/web/back/PlaftormHospital/uploadPic,
+            /foying/web/app/order/Pay/zhuanyun/addOrder,
+            /foying/web/back/OrderZhuanYunCouponOrder/editOrderZhuanYunCouponOrderById,
+            /foying/web/back/OrderZhuanYunPayOrder/orderPricing,
+            /foying/web/back/OrderZhuanYunPayOrder/updateAppointment,
+  # 需要过滤的连接（多个用逗号分隔，空值则拦截全部）
+  url: /foying/web/admin/*,/foying/web/back/*,/foying/web/app/*
+
+

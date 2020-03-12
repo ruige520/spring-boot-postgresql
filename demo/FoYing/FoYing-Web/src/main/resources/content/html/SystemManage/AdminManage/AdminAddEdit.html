@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../../static/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/admin.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/global.css">
+</head>
+<body>
+<div class="breadcrumb">
+    <span>您当前所在的位置 :</span>
+    <span class="layui-breadcrumb" lay-separator=">">
+        <a href="javascript:;">系统管理</a>
+        <a href="javascript:history.go(-1);">管理员管理</a>
+        <a href="javascript:;">新增/编辑管理员</a>
+    </span>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <form class="layui-form" lay-filter="form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">管理员角色:</label>
+                    <div class="layui-input-inline">
+                        <select name="roleIds" lay-verify="required">
+                            <option value=""></option>
+                            <!--<option value="0">北京</option>-->
+                        </select>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">管理员角色:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="roleName" value="" class="layui-input layui-disabled"
+                               autocomplete="off" disabled>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux"></div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="account" value="" class="layui-input" autocomplete="off"
+                               lay-verify="required||isRightfulString">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*不可修改。用于后台登入名</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序号码:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="sortCode" value="" class="layui-input" autocomplete="off"
+                               lay-verify="isDigits">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*数字，越小越靠前</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录密码:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="password" value="" lay-verify="required" autocomplete="off"
+                               placeholder="" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="confirmPassword" value="" lay-verify="confirmPwd" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">工号:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="workNumber" value="0" lay-verify="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">分机号码:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="extentionNumber" value="0" lay-verify="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux"></div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">姓名:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="realName" value="" lay-verify="required" autocomplete="off"
+                               placeholder="" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电话:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="telephone" value="" lay-verify="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="email" value="" lay-verify="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注:</label>
+                    <div class="layui-input-block">
+                        <textarea name="remark" placeholder="请输入备注内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn" lay-submit lay-filter="commit">确认</button>
+                        <button type="button" class="layui-btn layui-btn-primary" onclick="history.go(-1)">返回上一页
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../../../static/lib/layui/layui.js"></script>
+<script src="../../../static/lib/jquery-1.11.3.min.js"></script>
+<script src="../../../static/js/app.js"></script>
+<script type="text/javascript">
+
+    var itemId = utils.getRequest().id;
+
+    layui.use(['form', 'element'], function () {
+        var form = layui.form;
+        //
+        if (itemId) {
+            //编辑数据
+            $('input[name="account"]').addClass('layui-disabled');
+            $('input[name="account"]').attr('disabled', 'disabled');
+            //隐藏密码输入
+            $('input[name="password"]').parent().parent().hide();
+            $('input[name="confirmPassword"]').parent().parent().hide();
+            $('input[name="password"]').removeAttr('lay-verify');
+            $('input[name="confirmPassword"]').removeAttr('lay-verify');
+            //
+            $('select[name="roleIds"]').parent().parent().hide();
+            $('select[name="roleIds"]').attr('disabled', 'disabled');
+            $('select[name="roleIds"]').removeAttr('lay-verify');
+            getItemData();
+        } else {
+            //新增数据
+            $('input[name="roleName"]').parent().parent().hide();
+            getSelectOption();
+        }
+
+        //表单验证
+        form.verify({
+            confirmPwd: function (value, item) { //value：表单的值、item：表单的DOM对象
+                var password = $('input[name="password"]').val();
+                if (value != password) {
+                    return '两次密码输入不一样';
+                }
+            },
+            isRightfulString: function (value, item) {
+                if (!utils.isRightfulString(value)) {
+                    return '请输入字母、数字的合法字符';
+                }
+            },
+            isDigits: function (value, item) {
+                if (!utils.isDigits(value)) {
+                    return '请输入整数';
+                }
+            }
+        });
+
+        //监听提交
+        form.on('submit(commit)', function (data) {
+            var req = data.field;
+            //console.log(req);
+            commit(req);
+            return false;
+        });
+
+        //提交
+        function commit(req) {
+            //添加
+            var url = contextPath + '/foying/web/admin/BaseManager/addBaseManager';
+            if (itemId) {
+                //编辑
+                req.id = itemId;
+                url = contextPath + '/foying/web/admin/BaseManager/updateBaseManager';
+            }
+            //加载效果
+            var loading = layer.load();
+            utils.ajaxRequest({
+                url: url,
+                data: req,
+                success: function (res) {
+                    //console.log(res);
+                    //100成功
+                    if (res.ResCode === '100') {
+                        layer.alert(res.ResMsg, function (index) {
+                            //do something
+                            layer.close(index);
+                            history.go(-1);
+                        });
+                    } else {
+                        layer.alert(res.ResMsg);
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    layer.alert('网络异常，请重试。');
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    layer.close(loading);
+                }
+            })
+        }
+
+        //获取下拉框选项
+        function getSelectOption() {
+            //加载效果
+            var loading = layer.load();
+            utils.ajaxRequest({
+                url: contextPath + '/foying/web/admin/BaseRole/getAllBaseRole',
+                success: function (res) {
+                    //100成功
+                    if (res.ResCode === '100') {
+                        //
+                        var list = res.entityList;
+                        if (list && list.length > 0) {
+                            var item;
+                            for (var i = 0; i < list.length; i++) {
+                                item = list[i];
+                                $('select[name="roleIds"]').append('<option value="' + item.id + '">' + item.roleName + '</option>')
+                            }
+                            //重新渲染select
+                            form.render('select');
+                        }
+                    } else {
+                        layer.alert(res.ResMsg);
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    layer.alert('网络异常，请重试。');
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    layer.close(loading);
+                }
+            })
+        }
+
+        //获取编辑项原来数据
+        function getItemData() {
+            var req = {id: itemId};
+            var url = contextPath + '/foying/web/admin/BaseManager/getBaseManager';
+            //加载效果
+            var loading = layer.load();
+            utils.ajaxRequest({
+                url: url,
+                data: req,
+                success: function (res) {
+                    //100成功
+                    if (res.ResCode === '100') {
+                        //
+                        form.val("form", res.entity);
+                    } else if (res.ResCode === '202') {
+                        layer.alert(res.ResMsg, function (index) {
+                            history.go(-1);
+                        });
+                    } else {
+                        layer.alert(res.ResMsg);
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    layer.alert('网络异常，请重试。');
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    layer.close(loading);
+                }
+            })
+        }
+    });
+</script>
+</body>
+</html>

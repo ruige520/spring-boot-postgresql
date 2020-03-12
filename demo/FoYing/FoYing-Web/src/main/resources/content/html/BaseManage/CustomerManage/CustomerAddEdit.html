@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../../static/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/admin.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/global.css">
+    <style type="text/css">
+        .layui-form-item .layui-input-inline {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="breadcrumb">
+    <span>您当前所在的位置 :</span>
+    <span class="layui-breadcrumb" lay-separator=">">
+        <a href="javascript:;">基础管理</a>
+        <a href="javascript:history.go(-1);">客户管理</a>
+        <a href="javascript:;">新增/编辑客户</a>
+    </span>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <form class="layui-form" lay-filter="form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序号码:</label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="sortCode" value="" class="layui-input" autocomplete="off"
+                               lay-verify="isDigits">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*数字，越小越靠前</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">客户名称:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="customerName" value="" lay-verify="required" autocomplete="off"
+                               placeholder="" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">*</div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注:</label>
+                    <div class="layui-input-block">
+                        <textarea name="remark" placeholder="请输入备注内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn" lay-submit lay-filter="commit">确认</button>
+                        <button type="button" class="layui-btn layui-btn-primary" onclick="history.go(-1)">返回上一页
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../../../static/lib/layui/layui.js"></script>
+<script src="../../../static/lib/jquery-1.11.3.min.js"></script>
+<script src="../../../static/js/app.js"></script>
+<script type="text/javascript">
+
+    var itemId = utils.getRequest().id;
+
+    layui.use(['form', 'element', 'laydate'], function () {
+        var form = layui.form;
+
+        //
+        if (itemId) {
+            getItemData();
+        }
+
+        //表单验证
+        form.verify({
+            isDigits: function (value, item) {
+                if (!utils.isDigits(value)) {
+                    return '请输入整数';
+                } else if (value <= 0) {
+                    return '请输入大于零的整数';
+                } else if (value.startsWith('0')) {
+                    return '请输入非零开头数字';
+                }
+            }
+        });
+
+        //监听提交
+        form.on('submit(commit)', function (data) {
+            var req = data.field;
+            // console.log(req);
+            commit(req);
+            return false;
+        });
+
+        //提交
+        function commit(req) {
+            //添加
+            var url = contextPath + '/foying/web/back/PlatformCustomer/addPlatformCustomer';
+            if (itemId) {
+                //编辑
+                req.id = itemId;
+                url = contextPath + '/foying/web/back/PlatformCustomer/updatePlaftormCustomer';
+            }
+            utils.ajaxRequest({
+                url: url,
+                data: req,
+                success: function (res) {
+                    //console.log(res);
+                    //100成功
+                    if (res.ResCode === '100') {
+                        layer.alert(res.ResMsg, function (index) {
+                            //do something
+                            layer.close(index);
+                            history.go(-1);
+                        });
+                    } else {
+                        layer.alert(res.ResMsg);
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    layer.alert('网络异常，请重试。');
+                }
+            })
+        }
+
+        //获取编辑项原来数据
+        function getItemData() {
+            var req = {id: itemId};
+            utils.ajaxRequest({
+                url: contextPath + '/foying/web/back/PlatformCustomer/getPlaftormCustomerById',
+                data: req,
+                success: function (res) {
+                    //100成功
+                    if (res.ResCode === '100') {
+                        //console.log(res.entity);
+                        form.val("form", res.entity);
+                    } else if (res.ResCode === '202') {
+                        layer.alert(res.ResMsg, function (index) {
+                            history.go(-1);
+                        });
+                    } else {
+                        layer.alert(res.ResMsg);
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    layer.alert('网络异常，请重试。');
+                }
+            })
+        }
+    });
+</script>
+</body>
+</html>

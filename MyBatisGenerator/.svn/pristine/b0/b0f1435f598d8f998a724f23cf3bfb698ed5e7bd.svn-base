@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.back.mapper.OrderMenZhenPayOrderRecordCouponMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCoupon" >
+    <constructor >
+      <idArg column="ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OrderID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CouponID" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, OrderID, CouponID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCouponExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Order_MenZhen_PayOrder_Record_Coupon
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Order_MenZhen_PayOrder_Record_Coupon
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Order_MenZhen_PayOrder_Record_Coupon
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCouponExample" >
+    delete from Order_MenZhen_PayOrder_Record_Coupon
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCoupon" >
+    insert into Order_MenZhen_PayOrder_Record_Coupon (ID, OrderID, CouponID
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{couponId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCoupon" >
+    insert into Order_MenZhen_PayOrder_Record_Coupon
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="orderId != null" >
+        OrderID,
+      </if>
+      <if test="couponId != null" >
+        CouponID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="couponId != null" >
+        #{couponId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCouponExample" resultType="java.lang.Integer" >
+    select count(*) from Order_MenZhen_PayOrder_Record_Coupon
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Order_MenZhen_PayOrder_Record_Coupon
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null" >
+        OrderID = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.couponId != null" >
+        CouponID = #{record.couponId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Order_MenZhen_PayOrder_Record_Coupon
+    set ID = #{record.id,jdbcType=VARCHAR},
+      OrderID = #{record.orderId,jdbcType=VARCHAR},
+      CouponID = #{record.couponId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCoupon" >
+    update Order_MenZhen_PayOrder_Record_Coupon
+    <set >
+      <if test="orderId != null" >
+        OrderID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="couponId != null" >
+        CouponID = #{couponId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordCoupon" >
+    update Order_MenZhen_PayOrder_Record_Coupon
+    set OrderID = #{orderId,jdbcType=VARCHAR},
+      CouponID = #{couponId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

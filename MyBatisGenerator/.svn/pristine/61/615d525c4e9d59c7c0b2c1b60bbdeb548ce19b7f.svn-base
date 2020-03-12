@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.back.mapper.OrderMenZhenPayOrderRecordPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPrice" >
+    <constructor >
+      <idArg column="ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OrderID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ServiceProjects" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="ServiceProjectIds" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Hospital" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="HospitalID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Department" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="DepartmentID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Doctor" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="DoctorID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="AppointTime" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="Scheduling" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OrderPrice" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="DeductPrice" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="CouponIds" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Remark" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="AddTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="AddUserID" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="AddUserName" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="ModifyTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="ModifyUserID" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="ModifyName" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="DeleteMark" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="DeleteName" jdbcType="NVARCHAR" javaType="java.lang.String" />
+      <arg column="DeleteTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, OrderID, ServiceProjects, ServiceProjectIds, Hospital, HospitalID, Department, 
+    DepartmentID, Doctor, DoctorID, AppointTime, Scheduling, OrderPrice, DeductPrice, 
+    CouponIds, Remark, AddTime, AddUserID, AddUserName, ModifyTime, ModifyUserID, ModifyName, 
+    DeleteMark, DeleteName, DeleteTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPriceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Order_MenZhen_PayOrder_Record_Price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Order_MenZhen_PayOrder_Record_Price
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Order_MenZhen_PayOrder_Record_Price
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPriceExample" >
+    delete from Order_MenZhen_PayOrder_Record_Price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPrice" >
+    insert into Order_MenZhen_PayOrder_Record_Price (ID, OrderID, ServiceProjects, 
+      ServiceProjectIds, Hospital, HospitalID, 
+      Department, DepartmentID, Doctor, 
+      DoctorID, AppointTime, Scheduling, 
+      OrderPrice, DeductPrice, CouponIds, 
+      Remark, AddTime, AddUserID, 
+      AddUserName, ModifyTime, ModifyUserID, 
+      ModifyName, DeleteMark, DeleteName, 
+      DeleteTime)
+    values (#{id,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{serviceProjects,jdbcType=NVARCHAR}, 
+      #{serviceProjectIds,jdbcType=VARCHAR}, #{hospital,jdbcType=NVARCHAR}, #{hospitalId,jdbcType=VARCHAR}, 
+      #{department,jdbcType=NVARCHAR}, #{departmentId,jdbcType=VARCHAR}, #{doctor,jdbcType=NVARCHAR}, 
+      #{doctorId,jdbcType=VARCHAR}, #{appointTime,jdbcType=DATE}, #{scheduling,jdbcType=VARCHAR}, 
+      #{orderPrice,jdbcType=INTEGER}, #{deductPrice,jdbcType=INTEGER}, #{couponIds,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=NVARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{addUserId,jdbcType=NVARCHAR}, 
+      #{addUserName,jdbcType=NVARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUserId,jdbcType=NVARCHAR}, 
+      #{modifyName,jdbcType=NVARCHAR}, #{deleteMark,jdbcType=BIT}, #{deleteName,jdbcType=NVARCHAR}, 
+      #{deleteTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPrice" >
+    insert into Order_MenZhen_PayOrder_Record_Price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="orderId != null" >
+        OrderID,
+      </if>
+      <if test="serviceProjects != null" >
+        ServiceProjects,
+      </if>
+      <if test="serviceProjectIds != null" >
+        ServiceProjectIds,
+      </if>
+      <if test="hospital != null" >
+        Hospital,
+      </if>
+      <if test="hospitalId != null" >
+        HospitalID,
+      </if>
+      <if test="department != null" >
+        Department,
+      </if>
+      <if test="departmentId != null" >
+        DepartmentID,
+      </if>
+      <if test="doctor != null" >
+        Doctor,
+      </if>
+      <if test="doctorId != null" >
+        DoctorID,
+      </if>
+      <if test="appointTime != null" >
+        AppointTime,
+      </if>
+      <if test="scheduling != null" >
+        Scheduling,
+      </if>
+      <if test="orderPrice != null" >
+        OrderPrice,
+      </if>
+      <if test="deductPrice != null" >
+        DeductPrice,
+      </if>
+      <if test="couponIds != null" >
+        CouponIds,
+      </if>
+      <if test="remark != null" >
+        Remark,
+      </if>
+      <if test="addTime != null" >
+        AddTime,
+      </if>
+      <if test="addUserId != null" >
+        AddUserID,
+      </if>
+      <if test="addUserName != null" >
+        AddUserName,
+      </if>
+      <if test="modifyTime != null" >
+        ModifyTime,
+      </if>
+      <if test="modifyUserId != null" >
+        ModifyUserID,
+      </if>
+      <if test="modifyName != null" >
+        ModifyName,
+      </if>
+      <if test="deleteMark != null" >
+        DeleteMark,
+      </if>
+      <if test="deleteName != null" >
+        DeleteName,
+      </if>
+      <if test="deleteTime != null" >
+        DeleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProjects != null" >
+        #{serviceProjects,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceProjectIds != null" >
+        #{serviceProjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="hospital != null" >
+        #{hospital,jdbcType=NVARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=NVARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null" >
+        #{doctor,jdbcType=NVARCHAR},
+      </if>
+      <if test="doctorId != null" >
+        #{doctorId,jdbcType=VARCHAR},
+      </if>
+      <if test="appointTime != null" >
+        #{appointTime,jdbcType=DATE},
+      </if>
+      <if test="scheduling != null" >
+        #{scheduling,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        #{orderPrice,jdbcType=INTEGER},
+      </if>
+      <if test="deductPrice != null" >
+        #{deductPrice,jdbcType=INTEGER},
+      </if>
+      <if test="couponIds != null" >
+        #{couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=NVARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        #{addUserName,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        #{modifyUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        #{modifyName,jdbcType=NVARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteName != null" >
+        #{deleteName,jdbcType=NVARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPriceExample" resultType="java.lang.Integer" >
+    select count(*) from Order_MenZhen_PayOrder_Record_Price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Order_MenZhen_PayOrder_Record_Price
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null" >
+        OrderID = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceProjects != null" >
+        ServiceProjects = #{record.serviceProjects,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.serviceProjectIds != null" >
+        ServiceProjectIds = #{record.serviceProjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospital != null" >
+        Hospital = #{record.hospital,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.hospitalId != null" >
+        HospitalID = #{record.hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null" >
+        Department = #{record.department,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.departmentId != null" >
+        DepartmentID = #{record.departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctor != null" >
+        Doctor = #{record.doctor,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.doctorId != null" >
+        DoctorID = #{record.doctorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointTime != null" >
+        AppointTime = #{record.appointTime,jdbcType=DATE},
+      </if>
+      <if test="record.scheduling != null" >
+        Scheduling = #{record.scheduling,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderPrice != null" >
+        OrderPrice = #{record.orderPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductPrice != null" >
+        DeductPrice = #{record.deductPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.couponIds != null" >
+        CouponIds = #{record.couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        Remark = #{record.remark,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.addTime != null" >
+        AddTime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addUserId != null" >
+        AddUserID = #{record.addUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.addUserName != null" >
+        AddUserName = #{record.addUserName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.modifyTime != null" >
+        ModifyTime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyUserId != null" >
+        ModifyUserID = #{record.modifyUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.modifyName != null" >
+        ModifyName = #{record.modifyName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.deleteMark != null" >
+        DeleteMark = #{record.deleteMark,jdbcType=BIT},
+      </if>
+      <if test="record.deleteName != null" >
+        DeleteName = #{record.deleteName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.deleteTime != null" >
+        DeleteTime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Order_MenZhen_PayOrder_Record_Price
+    set ID = #{record.id,jdbcType=VARCHAR},
+      OrderID = #{record.orderId,jdbcType=VARCHAR},
+      ServiceProjects = #{record.serviceProjects,jdbcType=NVARCHAR},
+      ServiceProjectIds = #{record.serviceProjectIds,jdbcType=VARCHAR},
+      Hospital = #{record.hospital,jdbcType=NVARCHAR},
+      HospitalID = #{record.hospitalId,jdbcType=VARCHAR},
+      Department = #{record.department,jdbcType=NVARCHAR},
+      DepartmentID = #{record.departmentId,jdbcType=VARCHAR},
+      Doctor = #{record.doctor,jdbcType=NVARCHAR},
+      DoctorID = #{record.doctorId,jdbcType=VARCHAR},
+      AppointTime = #{record.appointTime,jdbcType=DATE},
+      Scheduling = #{record.scheduling,jdbcType=VARCHAR},
+      OrderPrice = #{record.orderPrice,jdbcType=INTEGER},
+      DeductPrice = #{record.deductPrice,jdbcType=INTEGER},
+      CouponIds = #{record.couponIds,jdbcType=VARCHAR},
+      Remark = #{record.remark,jdbcType=NVARCHAR},
+      AddTime = #{record.addTime,jdbcType=TIMESTAMP},
+      AddUserID = #{record.addUserId,jdbcType=NVARCHAR},
+      AddUserName = #{record.addUserName,jdbcType=NVARCHAR},
+      ModifyTime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      ModifyUserID = #{record.modifyUserId,jdbcType=NVARCHAR},
+      ModifyName = #{record.modifyName,jdbcType=NVARCHAR},
+      DeleteMark = #{record.deleteMark,jdbcType=BIT},
+      DeleteName = #{record.deleteName,jdbcType=NVARCHAR},
+      DeleteTime = #{record.deleteTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPrice" >
+    update Order_MenZhen_PayOrder_Record_Price
+    <set >
+      <if test="orderId != null" >
+        OrderID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProjects != null" >
+        ServiceProjects = #{serviceProjects,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceProjectIds != null" >
+        ServiceProjectIds = #{serviceProjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="hospital != null" >
+        Hospital = #{hospital,jdbcType=NVARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        HospitalID = #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        Department = #{department,jdbcType=NVARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        DepartmentID = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null" >
+        Doctor = #{doctor,jdbcType=NVARCHAR},
+      </if>
+      <if test="doctorId != null" >
+        DoctorID = #{doctorId,jdbcType=VARCHAR},
+      </if>
+      <if test="appointTime != null" >
+        AppointTime = #{appointTime,jdbcType=DATE},
+      </if>
+      <if test="scheduling != null" >
+        Scheduling = #{scheduling,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        OrderPrice = #{orderPrice,jdbcType=INTEGER},
+      </if>
+      <if test="deductPrice != null" >
+        DeductPrice = #{deductPrice,jdbcType=INTEGER},
+      </if>
+      <if test="couponIds != null" >
+        CouponIds = #{couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        Remark = #{remark,jdbcType=NVARCHAR},
+      </if>
+      <if test="addTime != null" >
+        AddTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        AddUserID = #{addUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        AddUserName = #{addUserName,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        ModifyTime = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        ModifyUserID = #{modifyUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        ModifyName = #{modifyName,jdbcType=NVARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        DeleteMark = #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteName != null" >
+        DeleteName = #{deleteName,jdbcType=NVARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        DeleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordPrice" >
+    update Order_MenZhen_PayOrder_Record_Price
+    set OrderID = #{orderId,jdbcType=VARCHAR},
+      ServiceProjects = #{serviceProjects,jdbcType=NVARCHAR},
+      ServiceProjectIds = #{serviceProjectIds,jdbcType=VARCHAR},
+      Hospital = #{hospital,jdbcType=NVARCHAR},
+      HospitalID = #{hospitalId,jdbcType=VARCHAR},
+      Department = #{department,jdbcType=NVARCHAR},
+      DepartmentID = #{departmentId,jdbcType=VARCHAR},
+      Doctor = #{doctor,jdbcType=NVARCHAR},
+      DoctorID = #{doctorId,jdbcType=VARCHAR},
+      AppointTime = #{appointTime,jdbcType=DATE},
+      Scheduling = #{scheduling,jdbcType=VARCHAR},
+      OrderPrice = #{orderPrice,jdbcType=INTEGER},
+      DeductPrice = #{deductPrice,jdbcType=INTEGER},
+      CouponIds = #{couponIds,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=NVARCHAR},
+      AddTime = #{addTime,jdbcType=TIMESTAMP},
+      AddUserID = #{addUserId,jdbcType=NVARCHAR},
+      AddUserName = #{addUserName,jdbcType=NVARCHAR},
+      ModifyTime = #{modifyTime,jdbcType=TIMESTAMP},
+      ModifyUserID = #{modifyUserId,jdbcType=NVARCHAR},
+      ModifyName = #{modifyName,jdbcType=NVARCHAR},
+      DeleteMark = #{deleteMark,jdbcType=BIT},
+      DeleteName = #{deleteName,jdbcType=NVARCHAR},
+      DeleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

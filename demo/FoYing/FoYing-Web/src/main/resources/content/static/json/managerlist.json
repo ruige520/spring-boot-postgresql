@@ -1,0 +1,266 @@
+﻿{
+  "status": 0,
+  "message": "",
+  "page": "1",
+  "total": "2",
+  "records": "16",
+  "rows": [
+    {
+      "id": "297ec62f6001cc44016001d570b00004",
+      "username": "bb",
+      "realname": "林晓婷",
+      "telephone": "18923104792",
+      "email": "18923104792@qq.com",
+      "isLock": "true",
+      "addTime": "2017-11-28 16:54:13",
+      "addUserName": "bb",
+      "modifyTime": "2018-05-24 16:53:23",
+      "modifyName": "bb",
+      "remark": "lxt",
+      "baseManagerRole": {
+        "managerRoleId": "1",
+        "managerRoleName": "超级管理员"
+      },
+      "workNumber": 212002,
+      "extentionNumber": 5212002
+    },
+    {
+      "id": "402883e25d597906015d597ad08a0003",
+      "username": "bbc",
+      "realname": "林坚坚",
+      "telephone": "18923104792",
+      "email": "1053246163@qq.com",
+      "isLock": "true",
+      "addTime": "2017-07-19 14:13:27",
+      "addUserName": "xx",
+      "modifyTime": "2017-11-29 19:58:28",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "1",
+        "managerRoleName": "超级管理员"
+      },
+      "workNumber": 212004,
+      "extentionNumber": 5212004
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c6cf9560011",
+      "username": "panjie",
+      "realname": "潘洁",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:02:46",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:38:03",
+      "modifyName": "pangu-zzk",
+      "remark": "石湾镇街道",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c6a4efa000a",
+        "managerRoleName": "街道用户"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c6dc74c0012",
+      "username": "xueyu",
+      "realname": "雪瑜",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:03:39",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:38:09",
+      "modifyName": "pangu-zzk",
+      "remark": "石湾镇街道",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c6b16c7000b",
+        "managerRoleName": "社区用户"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c78e1d20013",
+      "username": "pangu-zzk",
+      "realname": "赵梓楷",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:15:46",
+      "addUserName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "1",
+        "managerRoleName": "超级管理员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c79773d0014",
+      "username": "pangu-zqh",
+      "realname": "曾秋辉",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:16:25",
+      "addUserName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "1",
+        "managerRoleName": "超级管理员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c79d54f0015",
+      "username": "pangu-lqh",
+      "realname": "卢绮桦",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:16:49",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:31:33",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c7a59d60016",
+      "username": "pangu-lzx",
+      "realname": "梁志雄",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:17:23",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:31:42",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c7b21360017",
+      "username": "pangu-csm",
+      "realname": "陈少敏",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:18:14",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:31:48",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c7b6b960018",
+      "username": "pangu-lwh",
+      "realname": "梁文豪",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:18:33",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:31:55",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c7bad750019",
+      "username": "pangu-sjc",
+      "realname": "苏建成",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:18:50",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:32:00",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c7c600b001a",
+      "username": "pangu-ljp",
+      "realname": "李洁萍",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:19:35",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:32:06",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "f8cc9c7a5f519bfe015f5c859932001d",
+        "managerRoleName": "客服人员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c820973001b",
+      "username": "pangu-lbs",
+      "realname": "林碧珊",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:25:46",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:33:20",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "10",
+        "managerRoleName": "普通管理员"
+      }
+    },
+    {
+      "id": "f8cc9c7a5f519bfe015f5c82613c001c",
+      "username": "pangu-ljh",
+      "realname": "廖家辉",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2017-10-27 14:26:09",
+      "addUserName": "bb",
+      "modifyTime": "2017-10-27 14:33:27",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "10",
+        "managerRoleName": "普通管理员"
+      }
+    },
+    {
+      "id": "f8cc9c7a60a194bc0160c3ecb2e40001",
+      "username": "ccadmin",
+      "realname": "禅城超级管理员",
+      "telephone": "",
+      "email": "",
+      "isLock": "true",
+      "addTime": "2018-01-05 09:25:57",
+      "addUserName": "bb",
+      "modifyTime": "2018-01-05 09:27:00",
+      "modifyName": "bb",
+      "remark": "",
+      "baseManagerRole": {
+        "managerRoleId": "1",
+        "managerRoleName": "超级管理员"
+      },
+      "workNumber": 0,
+      "extentionNumber": 0
+    }
+  ]
+}

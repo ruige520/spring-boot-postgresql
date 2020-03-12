@@ -1,0 +1,288 @@
+package com.pangu.foying.web.project.back.entity;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+public class OrderMenZhenPayOrderRecordPrice extends BaseEntity {
+    private String id;
+
+    private String orderId;
+
+    private String serviceProjects;
+
+    private String serviceProjectIds;
+
+    private String hospital;
+
+    private String hospitalId;
+
+    private String department;
+
+    private String departmentId;
+
+    private String doctor;
+
+    private String doctorId;
+
+    private Date appointTime;
+
+    private String scheduling;
+
+    private Integer orderPrice;
+
+    private Integer deductPrice;
+
+    private String couponIds;
+
+    private String remark;
+
+    private Timestamp addTime;
+
+    private String addUserId;
+
+    private String addUserName;
+
+    private Timestamp modifyTime;
+
+    private String modifyUserId;
+
+    private String modifyName;
+
+    private Boolean deleteMark;
+
+    private String deleteName;
+
+    private Timestamp deleteTime;
+
+    public OrderMenZhenPayOrderRecordPrice(String id, String orderId, String serviceProjects, String serviceProjectIds, String hospital, String hospitalId, String department, String departmentId, String doctor, String doctorId, Date appointTime, String scheduling, Integer orderPrice, Integer deductPrice, String couponIds, String remark, Timestamp addTime, String addUserId, String addUserName, Timestamp modifyTime, String modifyUserId, String modifyName, Boolean deleteMark, String deleteName, Timestamp deleteTime) {
+        this.id = id;
+        this.orderId = orderId;
+        this.serviceProjects = serviceProjects;
+        this.serviceProjectIds = serviceProjectIds;
+        this.hospital = hospital;
+        this.hospitalId = hospitalId;
+        this.department = department;
+        this.departmentId = departmentId;
+        this.doctor = doctor;
+        this.doctorId = doctorId;
+        this.appointTime = appointTime;
+        this.scheduling = scheduling;
+        this.orderPrice = orderPrice;
+        this.deductPrice = deductPrice;
+        this.couponIds = couponIds;
+        this.remark = remark;
+        this.addTime = addTime;
+        this.addUserId = addUserId;
+        this.addUserName = addUserName;
+        this.modifyTime = modifyTime;
+        this.modifyUserId = modifyUserId;
+        this.modifyName = modifyName;
+        this.deleteMark = deleteMark;
+        this.deleteName = deleteName;
+        this.deleteTime = deleteTime;
+    }
+
+    public OrderMenZhenPayOrderRecordPrice() {
+        super();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId == null ? null : orderId.trim();
+    }
+
+    public String getServiceProjects() {
+        return serviceProjects;
+    }
+
+    public void setServiceProjects(String serviceProjects) {
+        this.serviceProjects = serviceProjects == null ? null : serviceProjects.trim();
+    }
+
+    public String getServiceProjectIds() {
+        return serviceProjectIds;
+    }
+
+    public void setServiceProjectIds(String serviceProjectIds) {
+        this.serviceProjectIds = serviceProjectIds == null ? null : serviceProjectIds.trim();
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital == null ? null : hospital.trim();
+    }
+
+    public String getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(String hospitalId) {
+        this.hospitalId = hospitalId == null ? null : hospitalId.trim();
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department == null ? null : department.trim();
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId == null ? null : departmentId.trim();
+    }
+
+    public String getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(String doctor) {
+        this.doctor = doctor == null ? null : doctor.trim();
+    }
+
+    public String getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId == null ? null : doctorId.trim();
+    }
+
+    public Date getAppointTime() {
+        return appointTime;
+    }
+
+    public void setAppointTime(Date appointTime) {
+        this.appointTime = appointTime;
+    }
+
+    public String getScheduling() {
+        return scheduling;
+    }
+
+    public void setScheduling(String scheduling) {
+        this.scheduling = scheduling == null ? null : scheduling.trim();
+    }
+
+    public Integer getOrderPrice() {
+        return orderPrice;
+    }
+
+    public void setOrderPrice(Integer orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
+    public Integer getDeductPrice() {
+        return deductPrice;
+    }
+
+    public void setDeductPrice(Integer deductPrice) {
+        this.deductPrice = deductPrice;
+    }
+
+    public String getCouponIds() {
+        return couponIds;
+    }
+
+    public void setCouponIds(String couponIds) {
+        this.couponIds = couponIds == null ? null : couponIds.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    public Timestamp getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Timestamp addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getAddUserId() {
+        return addUserId;
+    }
+
+    public void setAddUserId(String addUserId) {
+        this.addUserId = addUserId == null ? null : addUserId.trim();
+    }
+
+    public String getAddUserName() {
+        return addUserName;
+    }
+
+    public void setAddUserName(String addUserName) {
+        this.addUserName = addUserName == null ? null : addUserName.trim();
+    }
+
+    public Timestamp getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Timestamp modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public String getModifyUserId() {
+        return modifyUserId;
+    }
+
+    public void setModifyUserId(String modifyUserId) {
+        this.modifyUserId = modifyUserId == null ? null : modifyUserId.trim();
+    }
+
+    public String getModifyName() {
+        return modifyName;
+    }
+
+    public void setModifyName(String modifyName) {
+        this.modifyName = modifyName == null ? null : modifyName.trim();
+    }
+
+    public Boolean getDeleteMark() {
+        return deleteMark;
+    }
+
+    public void setDeleteMark(Boolean deleteMark) {
+        this.deleteMark = deleteMark;
+    }
+
+    public String getDeleteName() {
+        return deleteName;
+    }
+
+    public void setDeleteName(String deleteName) {
+        this.deleteName = deleteName == null ? null : deleteName.trim();
+    }
+
+    public Timestamp getDeleteTime() {
+        return deleteTime;
+    }
+
+    public void setDeleteTime(Timestamp deleteTime) {
+        this.deleteTime = deleteTime;
+    }
+}

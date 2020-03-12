@@ -1,0 +1,30 @@
+package com.pangu.foying.web.project.back.mapper;
+
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderEvaluation;
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderEvaluationExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface OrderMenZhenPayOrderEvaluationMapper {
+    int countByExample(OrderMenZhenPayOrderEvaluationExample example);
+
+    int deleteByExample(OrderMenZhenPayOrderEvaluationExample example);
+
+    int deleteByPrimaryKey(String id);
+
+    int insert(OrderMenZhenPayOrderEvaluation record);
+
+    int insertSelective(OrderMenZhenPayOrderEvaluation record);
+
+    List<OrderMenZhenPayOrderEvaluation> selectByExample(OrderMenZhenPayOrderEvaluationExample example);
+
+    OrderMenZhenPayOrderEvaluation selectByPrimaryKey(String id);
+
+    int updateByExampleSelective(@Param("record") OrderMenZhenPayOrderEvaluation record, @Param("example") OrderMenZhenPayOrderEvaluationExample example);
+
+    int updateByExample(@Param("record") OrderMenZhenPayOrderEvaluation record, @Param("example") OrderMenZhenPayOrderEvaluationExample example);
+
+    int updateByPrimaryKeySelective(OrderMenZhenPayOrderEvaluation record);
+
+    int updateByPrimaryKey(OrderMenZhenPayOrderEvaluation record);
+}

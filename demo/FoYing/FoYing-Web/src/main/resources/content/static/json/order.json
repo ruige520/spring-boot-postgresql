@@ -1,0 +1,115 @@
+﻿{
+  "status": 0,
+  "message": "",
+  "total": 12,
+  "data": [
+    {
+      "month": "2019-01",
+      "order1": "33",
+      "order2": "24",
+      "order3": "25",
+      "order4": "8",
+      "order5": "4",
+      "orderTotal": "94"
+    },
+    {
+      "month": "2019-02",
+      "order1": "35",
+      "order2": "27",
+      "order3": "32",
+      "order4": "17",
+      "order5": "10",
+      "orderTotal": "121"
+    },
+    {
+      "month": "2019-03",
+      "order1": "34",
+      "order2": "23",
+      "order3": "31",
+      "order4": "11",
+      "order5": "9",
+      "orderTotal": "119"
+    },
+    {
+      "month": "2019-04",
+      "order1": "32",
+      "order2": "21",
+      "order3": "35",
+      "order4": "0",
+      "order5": "0",
+      "orderTotal": "88"
+    },
+    {
+      "month": "2019-05",
+      "order1": "31",
+      "order2": "25",
+      "order3": "13",
+      "order4": "6",
+      "order5": "2",
+      "orderTotal": "76"
+    },
+    {
+      "month": "2019-06",
+      "order1": "36",
+      "order2": "25",
+      "order3": "35",
+      "order4": "20",
+      "order5": "9",
+      "orderTotal": "125"
+    },
+    {
+      "month": "2019-07",
+      "order1": "31",
+      "order2": "21",
+      "order3": "33",
+      "order4": "25",
+      "order5": "14",
+      "orderTotal": "124"
+    },
+    {
+      "month": "2019-08",
+      "order1": "27",
+      "order2": "24",
+      "order3": "28",
+      "order4": "10",
+      "order5": "1",
+      "orderTotal": "90"
+    },
+    {
+      "month": "2019-09",
+      "order1": "37",
+      "order2": "28",
+      "order3": "31",
+      "order4": "2",
+      "order5": "0",
+      "orderTotal": "98"
+    },
+    {
+      "month": "2019-10",
+      "order1": "21",
+      "order2": "24",
+      "order3": "25",
+      "order4": "14",
+      "order5": "2",
+      "orderTotal": "86"
+    },
+    {
+      "month": "2019-11",
+      "order1": "33",
+      "order2": "29",
+      "order3": "31",
+      "order4": "18",
+      "order5": "6",
+      "orderTotal": "117"
+    },
+    {
+      "month": "2019-12",
+      "order1": "27",
+      "order2": "21",
+      "order3": "12",
+      "order4": "8",
+      "order5": "5",
+      "orderTotal": "73"
+    }
+  ]
+}

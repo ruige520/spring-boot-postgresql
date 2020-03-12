@@ -1,0 +1,31 @@
+{
+  "ResCode": "100",
+  "ResMsg": "获取导航栏列表成功",
+  "entityList": [
+    {
+      "actionType": "#",
+      "classLayer": 0,
+      "expanded": "true",
+      "iconUrl": "",
+      "id": 6,
+      "isLeaf": "false",
+      "isLock": "false",
+      "isSys": "true",
+      "linkUrl": "#",
+      "navigationName": "userManage",
+      "navigationType": "dir",
+      "pid": 0,
+      "primarykey": "297ec62f5deeb2ce015deebb27a70002",
+      "remark": "",
+      "sortCode": 99,
+      "subTitle": "用户管理",
+      "checkArr": [
+        {
+          "type": "0",
+          "isChecked": "1"
+        }
+      ],
+      "title": "用户管理"
+    }
+  ]
+}

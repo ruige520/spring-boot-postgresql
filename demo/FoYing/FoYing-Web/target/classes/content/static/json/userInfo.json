@@ -1,0 +1,157 @@
+{
+  "code": 0,
+  "msg": "成功",
+  "count": 20,
+  "data": [
+    {
+      "id": 1,
+      "uname": "李雷",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+    ,{
+      "id": 2,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+    ,{
+      "id": 3,
+      "uname": "李雷",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 4,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 5,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 6,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 7,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 8,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 9,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ,{
+      "id": 10,
+      "uname": "韩梅梅",
+      "street": "石湾街道",
+      "village": "里水村",
+      "gender": "男",
+      "idCardNo": "123456789012345678",
+      "phone": "13682242036",
+      "birthday": "1992-12-23",
+      "serverType": "政府购买",
+      "addTime": "2018-12-14",
+      "addManager": "sa",
+      "updateTime": "2018-12-14",
+      "updateManager": "sa"
+    }
+  ]
+}

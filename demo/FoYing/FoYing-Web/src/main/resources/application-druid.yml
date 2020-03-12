@@ -1,0 +1,36 @@
+# 数据库配置
+spring:
+  datasource:
+    druid:
+      db-type: postgreSQL
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://127.0.0.1:5432/demo
+      username: postgres
+      password: 123456
+      initial-size: 1
+      max-active: 1000
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query-timeout: 0
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
+      log-abandoned: false
+# MyBatis
+mybatis:
+    # 配置mapper的扫描，找到所有mapper.xml
+    mapper-locations: classpath:mybatis/**/*Mapper.xml
+    # 加载全局配置文件
+    config-location: classpath:mybatis/mybatis-config.xml
+    #配置别名
+    #type-aliases-package: com.pangu
+
+
+

@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.admin.mapper.WechatUserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.admin.entity.WechatUserInfo" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="openid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="nickname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="headimgurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="language" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="country" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="province" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="city" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="subscribe_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="unionid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="groupid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tagid_list" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="subscribe_scene" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="qr_scene" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="qr_scene_str" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="subscribe" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="errmsg" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="errcode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addtime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="adduserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addusername" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifytime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="modifyuserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifyname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletemark" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="deletename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletetime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, openid, nickname, headimgurl, sex, language, country, province, city, subscribe_time, 
+    unionid, groupid, tagid_list, subscribe_scene, qr_scene, qr_scene_str, subscribe, 
+    errmsg, errcode, remark, addtime, adduserid, addusername, modifytime, modifyuserid, 
+    modifyname, deletemark, deletename, deletetime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wechat_user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from wechat_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from wechat_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfoExample" >
+    delete from wechat_user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfo" >
+    insert into wechat_user_info (id, openid, nickname, 
+      headimgurl, sex, language, 
+      country, province, city, 
+      subscribe_time, unionid, groupid, 
+      tagid_list, subscribe_scene, qr_scene, 
+      qr_scene_str, subscribe, errmsg, 
+      errcode, remark, addtime, 
+      adduserid, addusername, modifytime, 
+      modifyuserid, modifyname, deletemark, 
+      deletename, deletetime)
+    values (#{id,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{headimgurl,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{subscribeTime,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{tagidList,jdbcType=VARCHAR}, #{subscribeScene,jdbcType=VARCHAR}, #{qrScene,jdbcType=VARCHAR}, 
+      #{qrSceneStr,jdbcType=VARCHAR}, #{subscribe,jdbcType=VARCHAR}, #{errmsg,jdbcType=VARCHAR}, 
+      #{errcode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{addUserId,jdbcType=VARCHAR}, #{addUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUserId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, #{deleteMark,jdbcType=BIT}, 
+      #{deleteName,jdbcType=VARCHAR}, #{deleteTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfo" >
+    insert into wechat_user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openId != null" >
+        openid,
+      </if>
+      <if test="nickName != null" >
+        nickname,
+      </if>
+      <if test="headimgurl != null" >
+        headimgurl,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="subscribeTime != null" >
+        subscribe_time,
+      </if>
+      <if test="unionId != null" >
+        unionid,
+      </if>
+      <if test="groupId != null" >
+        groupid,
+      </if>
+      <if test="tagidList != null" >
+        tagid_list,
+      </if>
+      <if test="subscribeScene != null" >
+        subscribe_scene,
+      </if>
+      <if test="qrScene != null" >
+        qr_scene,
+      </if>
+      <if test="qrSceneStr != null" >
+        qr_scene_str,
+      </if>
+      <if test="subscribe != null" >
+        subscribe,
+      </if>
+      <if test="errmsg != null" >
+        errmsg,
+      </if>
+      <if test="errcode != null" >
+        errcode,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="addTime != null" >
+        addtime,
+      </if>
+      <if test="addUserId != null" >
+        adduserid,
+      </if>
+      <if test="addUserName != null" >
+        addusername,
+      </if>
+      <if test="modifyTime != null" >
+        modifytime,
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid,
+      </if>
+      <if test="modifyName != null" >
+        modifyname,
+      </if>
+      <if test="deleteMark != null" >
+        deletemark,
+      </if>
+      <if test="deleteName != null" >
+        deletename,
+      </if>
+      <if test="deleteTime != null" >
+        deletetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null" >
+        #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribeTime != null" >
+        #{subscribeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null" >
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="tagidList != null" >
+        #{tagidList,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribeScene != null" >
+        #{subscribeScene,jdbcType=VARCHAR},
+      </if>
+      <if test="qrScene != null" >
+        #{qrScene,jdbcType=VARCHAR},
+      </if>
+      <if test="qrSceneStr != null" >
+        #{qrSceneStr,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null" >
+        #{subscribe,jdbcType=VARCHAR},
+      </if>
+      <if test="errmsg != null" >
+        #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errcode != null" >
+        #{errcode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteName != null" >
+        #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfoExample" resultType="java.lang.Integer" >
+    select count(*) from wechat_user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wechat_user_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null" >
+        openid = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickName != null" >
+        nickname = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headimgurl != null" >
+        headimgurl = #{record.headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.language != null" >
+        language = #{record.language,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subscribeTime != null" >
+        subscribe_time = #{record.subscribeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unionId != null" >
+        unionid = #{record.unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null" >
+        groupid = #{record.groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagidList != null" >
+        tagid_list = #{record.tagidList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subscribeScene != null" >
+        subscribe_scene = #{record.subscribeScene,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qrScene != null" >
+        qr_scene = #{record.qrScene,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qrSceneStr != null" >
+        qr_scene_str = #{record.qrSceneStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subscribe != null" >
+        subscribe = #{record.subscribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errmsg != null" >
+        errmsg = #{record.errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errcode != null" >
+        errcode = #{record.errcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addTime != null" >
+        addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addUserId != null" >
+        adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addUserName != null" >
+        addusername = #{record.addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyTime != null" >
+        modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyUserId != null" >
+        modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyName != null" >
+        modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteMark != null" >
+        deletemark = #{record.deleteMark,jdbcType=BIT},
+      </if>
+      <if test="record.deleteName != null" >
+        deletename = #{record.deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteTime != null" >
+        deletetime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wechat_user_info
+    set id = #{record.id,jdbcType=VARCHAR},
+      openid = #{record.openId,jdbcType=VARCHAR},
+      nickname = #{record.nickName,jdbcType=VARCHAR},
+      headimgurl = #{record.headimgurl,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      language = #{record.language,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=VARCHAR},
+      province = #{record.province,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      subscribe_time = #{record.subscribeTime,jdbcType=VARCHAR},
+      unionid = #{record.unionId,jdbcType=VARCHAR},
+      groupid = #{record.groupId,jdbcType=VARCHAR},
+      tagid_list = #{record.tagidList,jdbcType=VARCHAR},
+      subscribe_scene = #{record.subscribeScene,jdbcType=VARCHAR},
+      qr_scene = #{record.qrScene,jdbcType=VARCHAR},
+      qr_scene_str = #{record.qrSceneStr,jdbcType=VARCHAR},
+      subscribe = #{record.subscribe,jdbcType=VARCHAR},
+      errmsg = #{record.errmsg,jdbcType=VARCHAR},
+      errcode = #{record.errcode,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      addusername = #{record.addUserName,jdbcType=VARCHAR},
+      modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      deletemark = #{record.deleteMark,jdbcType=BIT},
+      deletename = #{record.deleteName,jdbcType=VARCHAR},
+      deletetime = #{record.deleteTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfo" >
+    update wechat_user_info
+    <set >
+      <if test="openId != null" >
+        openid = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nickname = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null" >
+        headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribeTime != null" >
+        subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null" >
+        unionid = #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        groupid = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="tagidList != null" >
+        tagid_list = #{tagidList,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribeScene != null" >
+        subscribe_scene = #{subscribeScene,jdbcType=VARCHAR},
+      </if>
+      <if test="qrScene != null" >
+        qr_scene = #{qrScene,jdbcType=VARCHAR},
+      </if>
+      <if test="qrSceneStr != null" >
+        qr_scene_str = #{qrSceneStr,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null" >
+        subscribe = #{subscribe,jdbcType=VARCHAR},
+      </if>
+      <if test="errmsg != null" >
+        errmsg = #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errcode != null" >
+        errcode = #{errcode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        addtime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        adduserid = #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        addusername = #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        modifyname = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null" >
+        deletemark = #{deleteMark,jdbcType=BIT},
+      </if>
+      <if test="deleteName != null" >
+        deletename = #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        deletetime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.admin.entity.WechatUserInfo" >
+    update wechat_user_info
+    set openid = #{openId,jdbcType=VARCHAR},
+      nickname = #{nickName,jdbcType=VARCHAR},
+      headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+      unionid = #{unionId,jdbcType=VARCHAR},
+      groupid = #{groupId,jdbcType=VARCHAR},
+      tagid_list = #{tagidList,jdbcType=VARCHAR},
+      subscribe_scene = #{subscribeScene,jdbcType=VARCHAR},
+      qr_scene = #{qrScene,jdbcType=VARCHAR},
+      qr_scene_str = #{qrSceneStr,jdbcType=VARCHAR},
+      subscribe = #{subscribe,jdbcType=VARCHAR},
+      errmsg = #{errmsg,jdbcType=VARCHAR},
+      errcode = #{errcode,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      addtime = #{addTime,jdbcType=TIMESTAMP},
+      adduserid = #{addUserId,jdbcType=VARCHAR},
+      addusername = #{addUserName,jdbcType=VARCHAR},
+      modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{modifyName,jdbcType=VARCHAR},
+      deletemark = #{deleteMark,jdbcType=BIT},
+      deletename = #{deleteName,jdbcType=VARCHAR},
+      deletetime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

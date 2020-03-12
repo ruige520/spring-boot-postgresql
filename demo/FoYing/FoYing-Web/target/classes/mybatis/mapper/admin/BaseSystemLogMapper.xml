@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pangu.foying.web.project.admin.mapper.BaseSystemLogMapper" >
+  <resultMap id="BaseResultMap" type="com.pangu.foying.web.project.admin.entity.BaseSystemLog" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="accessmode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="businessmodule" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="actiontype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="hostip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operparams" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operresult" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addtime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="adduserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="addusername" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifytime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="modifyuserid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifyname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deletetime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+      <arg column="deletemark" jdbcType="BIT" javaType="java.lang.Boolean" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, accessmode, businessmodule, actiontype, hostip, operurl, operparams, operresult, 
+    status, addtime, adduserid, addusername, modifytime, modifyuserid, modifyname, deletename, 
+    deletetime, deletemark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_systemlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_systemlog
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_systemlog
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLogExample" >
+    delete from base_systemlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLog" >
+    insert into base_systemlog (id, accessmode, businessmodule, 
+      actiontype, hostip, operurl, 
+      operparams, operresult, status, 
+      addtime, adduserid, addusername, 
+      modifytime, modifyuserid, modifyname, 
+      deletename, deletetime, deletemark
+      )
+    values (#{id,jdbcType=VARCHAR}, #{accessMode,jdbcType=VARCHAR}, #{businessModule,jdbcType=VARCHAR}, 
+      #{actionType,jdbcType=VARCHAR}, #{hostIp,jdbcType=VARCHAR}, #{operUrl,jdbcType=VARCHAR}, 
+      #{operParams,jdbcType=VARCHAR}, #{operResult,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{addUserId,jdbcType=VARCHAR}, #{addUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUserId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
+      #{deleteName,jdbcType=VARCHAR}, #{deleteTime,jdbcType=TIMESTAMP}, #{deleteMark,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLog" >
+    insert into base_systemlog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="accessMode != null" >
+        accessmode,
+      </if>
+      <if test="businessModule != null" >
+        businessmodule,
+      </if>
+      <if test="actionType != null" >
+        actiontype,
+      </if>
+      <if test="hostIp != null" >
+        hostip,
+      </if>
+      <if test="operUrl != null" >
+        operurl,
+      </if>
+      <if test="operParams != null" >
+        operparams,
+      </if>
+      <if test="operResult != null" >
+        operresult,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="addTime != null" >
+        addtime,
+      </if>
+      <if test="addUserId != null" >
+        adduserid,
+      </if>
+      <if test="addUserName != null" >
+        addusername,
+      </if>
+      <if test="modifyTime != null" >
+        modifytime,
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid,
+      </if>
+      <if test="modifyName != null" >
+        modifyname,
+      </if>
+      <if test="deleteName != null" >
+        deletename,
+      </if>
+      <if test="deleteTime != null" >
+        deletetime,
+      </if>
+      <if test="deleteMark != null" >
+        deletemark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="accessMode != null" >
+        #{accessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessModule != null" >
+        #{businessModule,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null" >
+        #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="hostIp != null" >
+        #{hostIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operUrl != null" >
+        #{operUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operParams != null" >
+        #{operParams,jdbcType=VARCHAR},
+      </if>
+      <if test="operResult != null" >
+        #{operResult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteName != null" >
+        #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteMark != null" >
+        #{deleteMark,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLogExample" resultType="java.lang.Integer" >
+    select count(*) from base_systemlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_systemlog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accessMode != null" >
+        accessmode = #{record.accessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessModule != null" >
+        businessmodule = #{record.businessModule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actionType != null" >
+        actiontype = #{record.actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hostIp != null" >
+        hostip = #{record.hostIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operUrl != null" >
+        operurl = #{record.operUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operParams != null" >
+        operparams = #{record.operParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operResult != null" >
+        operresult = #{record.operResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addTime != null" >
+        addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addUserId != null" >
+        adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addUserName != null" >
+        addusername = #{record.addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyTime != null" >
+        modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyUserId != null" >
+        modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyName != null" >
+        modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteName != null" >
+        deletename = #{record.deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteTime != null" >
+        deletetime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteMark != null" >
+        deletemark = #{record.deleteMark,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_systemlog
+    set id = #{record.id,jdbcType=VARCHAR},
+      accessmode = #{record.accessMode,jdbcType=VARCHAR},
+      businessmodule = #{record.businessModule,jdbcType=VARCHAR},
+      actiontype = #{record.actionType,jdbcType=VARCHAR},
+      hostip = #{record.hostIp,jdbcType=VARCHAR},
+      operurl = #{record.operUrl,jdbcType=VARCHAR},
+      operparams = #{record.operParams,jdbcType=VARCHAR},
+      operresult = #{record.operResult,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      addtime = #{record.addTime,jdbcType=TIMESTAMP},
+      adduserid = #{record.addUserId,jdbcType=VARCHAR},
+      addusername = #{record.addUserName,jdbcType=VARCHAR},
+      modifytime = #{record.modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{record.modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{record.modifyName,jdbcType=VARCHAR},
+      deletename = #{record.deleteName,jdbcType=VARCHAR},
+      deletetime = #{record.deleteTime,jdbcType=TIMESTAMP},
+      deletemark = #{record.deleteMark,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLog" >
+    update base_systemlog
+    <set >
+      <if test="accessMode != null" >
+        accessmode = #{accessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessModule != null" >
+        businessmodule = #{businessModule,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null" >
+        actiontype = #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="hostIp != null" >
+        hostip = #{hostIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operUrl != null" >
+        operurl = #{operUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operParams != null" >
+        operparams = #{operParams,jdbcType=VARCHAR},
+      </if>
+      <if test="operResult != null" >
+        operresult = #{operResult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        addtime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        adduserid = #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addUserName != null" >
+        addusername = #{addUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUserId != null" >
+        modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null" >
+        modifyname = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteName != null" >
+        deletename = #{deleteName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        deletetime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteMark != null" >
+        deletemark = #{deleteMark,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLog" >
+    update base_systemlog
+    set accessmode = #{accessMode,jdbcType=VARCHAR},
+      businessmodule = #{businessModule,jdbcType=VARCHAR},
+      actiontype = #{actionType,jdbcType=VARCHAR},
+      hostip = #{hostIp,jdbcType=VARCHAR},
+      operurl = #{operUrl,jdbcType=VARCHAR},
+      operparams = #{operParams,jdbcType=VARCHAR},
+      operresult = #{operResult,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      addtime = #{addTime,jdbcType=TIMESTAMP},
+      adduserid = #{addUserId,jdbcType=VARCHAR},
+      addusername = #{addUserName,jdbcType=VARCHAR},
+      modifytime = #{modifyTime,jdbcType=TIMESTAMP},
+      modifyuserid = #{modifyUserId,jdbcType=VARCHAR},
+      modifyname = #{modifyName,jdbcType=VARCHAR},
+      deletename = #{deleteName,jdbcType=VARCHAR},
+      deletetime = #{deleteTime,jdbcType=TIMESTAMP},
+      deletemark = #{deleteMark,jdbcType=BIT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <!--BaseSystemLog通用分页查询-->
+  <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.pangu.foying.web.project.admin.entity.BaseSystemLogExample" >
+    SELECT
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    FROM base_systemlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <bind name="key_offset" value="(pageIndex-1)*pageSize"></bind>
+    ORDER BY ModifyTime DESC LIMIT ${pageSize} OFFSET ${key_offset};
+  </select>
+</mapper>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--连接数据库jar 这里选择自己本地位置-->
+    <classPathEntry location="E:\work7\MyBatisGenerator\src\main\resources\postgresql-42.2.9.jar" />
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://127.0.0.1:5432/demo"
+                        userId="postgres"
+                        password="123456">
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+           NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.pangu.foying.web.project.admin.entity" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="true"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true" />
+            <!-- 给Model添加一个父类 -->
+            <property name="rootClass" value="com.pangu.foying.web.project.admin.entity.BaseEntity"/>
+        </javaModelGenerator>
+
+        <!-- targetProject:mapper映射文件生成的位置
+           如果maven工程只是单独的一个工程，targetProject="src/main/java"
+           若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
+           targetProject="ecps-manager-mapper"，下同-->
+        <sqlMapGenerator targetPackage="com.pangu.foying.web.project.admin.mapper" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- targetPackage：mapper接口生成的位置
+            type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+            type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+            type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.pangu.foying.web.project.admin.mapper" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
+                public; private; protected; default;
+            -->
+            <!--<property name="exampleMethodVisibility" value=""/>-->
+            <!-- 为生成的接口添加父接口 -->
+            <!--<property name="rootInterface" value=""/>-->
+        </javaClientGenerator>
+
+        <table tableName="base_manager" domainObjectName="BaseManager">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="account" column="Account"/>
+            <columnOverride property="password" column="Password"/>
+            <columnOverride property="salt" column="Salt"/>
+            <columnOverride property="realName" column="RealName"/>
+            <columnOverride property="telephone" column="Telephone"/>
+            <columnOverride property="email" column="Email"/>
+            <columnOverride property="isLock" column="IsLock"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+            <columnOverride property="workNumber" column="WorkNumber"/>
+            <columnOverride property="extentionNumber" column="ExtentionNumber"/>
+        </table>
+
+        <table tableName="base_manager_role" domainObjectName="BaseManagerRole">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="baseManagerID" column="BaseManagerID"/>
+            <columnOverride property="baseRoleID" column="BaseRoleID"/>
+        </table>
+
+        <table tableName="base_role" domainObjectName="BaseRole">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="roleEncode" column="RoleEncode"/>
+            <columnOverride property="roleName" column="RoleName"/>
+            <columnOverride property="roleType" column="RoleType"/>
+            <columnOverride property="isSys" column="IsSYS"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_organize" domainObjectName="BaseOrganize">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="mainId" column="MainID"/>
+            <columnOverride property="parentId" column="ParentID"/>
+            <columnOverride property="organizeName" column="OrganizeName"/>
+            <columnOverride property="organizeEnCode" column="OrganizeEnCode"/>
+            <columnOverride property="name" column="Name"/>
+            <columnOverride property="mobilePhone" column="MobilePhone"/>
+            <columnOverride property="weChat" column="WeChat"/>
+            <columnOverride property="telephone" column="Telephone"/>
+            <columnOverride property="email" column="Email"/>
+            <columnOverride property="fax" column="Fax"/>
+            <columnOverride property="address" column="Address"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_organize_role" domainObjectName="BaseOrganizeRole">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="baseOrganizeId" column="BaseOrganizeID"/>
+            <columnOverride property="baseRoleId" column="BaseRoleID"/>
+        </table>
+
+        <table tableName="base_navigation" domainObjectName="BaseNavigation">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="mainId" column="MainID"/>
+            <columnOverride property="parentId" column="ParentID"/>
+            <columnOverride property="navigationType" column="NavigationType"/>
+            <columnOverride property="navigationName" column="NavigationName"/>
+            <columnOverride property="title" column="Title"/>
+            <columnOverride property="subTitle" column="SubTitle"/>
+            <columnOverride property="iconUrl" column="IconUrl"/>
+            <columnOverride property="linkUrl" column="LinkUrl"/>
+            <columnOverride property="isLock" column="IsLock"/>
+            <columnOverride property="actionType" column="ActionType"/>
+            <columnOverride property="isSys" column="IsSYS"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_navigation_role" domainObjectName="BaseNavigationRole">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="baseNavigationId" column="BaseNavigationID"/>
+            <columnOverride property="baseRoleId" column="BaseRoleID"/>
+        </table>
+
+        <table tableName="base_items" domainObjectName="BaseItems">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="mainId" column="MainID"/>
+            <columnOverride property="parentId" column="ParentID"/>
+            <columnOverride property="enCode" column="EnCode"/>
+            <columnOverride property="itemName" column="ItemName"/>
+            <columnOverride property="isDefault" column="IsDefault"/>
+            <columnOverride property="enabledMark" column="EnabledMark"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_itemsdetail" domainObjectName="BaseItemsDetail">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="itemsId" column="ItemsID"/>
+            <columnOverride property="enCode" column="EnCode"/>
+            <columnOverride property="itemName" column="ItemName"/>
+            <columnOverride property="isDefault" column="IsDefault"/>
+            <columnOverride property="enabledMark" column="EnabledMark"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_area" domainObjectName="BaseArea">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="mainId" column="MainID"/>
+            <columnOverride property="parentId" column="ParentID"/>
+            <columnOverride property="enCode" column="EnCode"/>
+            <columnOverride property="areaName" column="AreaName"/>
+            <columnOverride property="simpleSpelling" column="SimpleSpelling"/>
+            <columnOverride property="areaLevel" column="AreaLevel"/>
+            <columnOverride property="isSys" column="IsSYS"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="remark" column="Remark"/>
+            <columnOverride property="sortCode" column="SortCode"/>
+        </table>
+
+        <table tableName="base_systemLog" domainObjectName="BaseSystemLog">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="accessMode" column="AccessMode"/>
+            <columnOverride property="businessModule" column="BusinessModule"/>
+            <columnOverride property="actionType" column="ActionType"/>
+            <columnOverride property="hostIp" column="HostIp"/>
+            <columnOverride property="operUrl" column="OperUrl"/>
+            <columnOverride property="operParams" column="OperParams"/>
+            <columnOverride property="operResult" column="OperResult"/>
+            <columnOverride property="status" column="Status"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+        </table>
+
+        <table tableName="wechat_user_info" domainObjectName="WechatUserInfo">
+            <columnOverride property="id" column="ID"/>
+            <columnOverride property="openId" column="openid"/>
+            <columnOverride property="nickName" column="nickname"/>
+            <columnOverride property="headimgurl" column="headimgurl"/>
+            <columnOverride property="sex" column="sex"/>
+            <columnOverride property="language" column="language"/>
+            <columnOverride property="country" column="country"/>
+            <columnOverride property="province" column="province"/>
+            <columnOverride property="city" column="city"/>
+            <columnOverride property="subscribeTime" column="subscribe_time"/>
+            <columnOverride property="unionId" column="unionid"/>
+            <columnOverride property="groupId" column="groupid"/>
+            <columnOverride property="tagidList" column="tagid_list"/>
+            <columnOverride property="subscribeScene" column="subscribe_scene"/>
+            <columnOverride property="qrScene" column="qr_scene"/>
+            <columnOverride property="qrSceneStr" column="qr_scene_str"/>
+            <columnOverride property="subscribe" column="subscribe"/>
+            <columnOverride property="errmsg" column="errmsg"/>
+            <columnOverride property="errcode" column="errcode"/>
+            <columnOverride property="remark" column="remark"/>
+            <columnOverride property="addTime" column="AddTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="addUserId" column="AddUserID"/>
+            <columnOverride property="addUserName" column="AddUserName"/>
+            <columnOverride property="modifyTime" column="ModifyTime" javaType="java.sql.Timestamp"/>
+            <columnOverride property="modifyUserId" column="ModifyUserID"/>
+            <columnOverride property="modifyName" column="ModifyName"/>
+            <columnOverride property="deleteMark" column="DeleteMark"/>
+            <columnOverride property="deleteName" column="DeleteName"/>
+            <columnOverride property="deleteTime" column="DeleteTime" javaType="java.sql.Timestamp"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

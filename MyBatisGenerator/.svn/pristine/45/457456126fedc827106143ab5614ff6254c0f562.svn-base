@@ -1,0 +1,188 @@
+package com.pangu.foying.web.project.back.entity;
+
+import java.sql.Timestamp;
+
+public class OrderMenZhenPayOrderEvaluation extends BaseEntity {
+    private String id;
+
+    private String orderId;
+
+    private String plaftormUserId;
+
+    private String openId;
+
+    private String yuYueScore;
+
+    private String peiZhenScore;
+
+    private String content;
+
+    private Timestamp addTime;
+
+    private String addUserId;
+
+    private String addUserName;
+
+    private Timestamp modifyTime;
+
+    private String modifyUserId;
+
+    private String modifyName;
+
+    private Boolean deleteMark;
+
+    private String deleteName;
+
+    private Timestamp deleteTime;
+
+    public OrderMenZhenPayOrderEvaluation(String id, String orderId, String plaftormUserId, String openId, String yuYueScore, String peiZhenScore, String content, Timestamp addTime, String addUserId, String addUserName, Timestamp modifyTime, String modifyUserId, String modifyName, Boolean deleteMark, String deleteName, Timestamp deleteTime) {
+        this.id = id;
+        this.orderId = orderId;
+        this.plaftormUserId = plaftormUserId;
+        this.openId = openId;
+        this.yuYueScore = yuYueScore;
+        this.peiZhenScore = peiZhenScore;
+        this.content = content;
+        this.addTime = addTime;
+        this.addUserId = addUserId;
+        this.addUserName = addUserName;
+        this.modifyTime = modifyTime;
+        this.modifyUserId = modifyUserId;
+        this.modifyName = modifyName;
+        this.deleteMark = deleteMark;
+        this.deleteName = deleteName;
+        this.deleteTime = deleteTime;
+    }
+
+    public OrderMenZhenPayOrderEvaluation() {
+        super();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId == null ? null : orderId.trim();
+    }
+
+    public String getPlaftormUserId() {
+        return plaftormUserId;
+    }
+
+    public void setPlaftormUserId(String plaftormUserId) {
+        this.plaftormUserId = plaftormUserId == null ? null : plaftormUserId.trim();
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
+    }
+
+    public String getYuYueScore() {
+        return yuYueScore;
+    }
+
+    public void setYuYueScore(String yuYueScore) {
+        this.yuYueScore = yuYueScore == null ? null : yuYueScore.trim();
+    }
+
+    public String getPeiZhenScore() {
+        return peiZhenScore;
+    }
+
+    public void setPeiZhenScore(String peiZhenScore) {
+        this.peiZhenScore = peiZhenScore == null ? null : peiZhenScore.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public Timestamp getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Timestamp addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getAddUserId() {
+        return addUserId;
+    }
+
+    public void setAddUserId(String addUserId) {
+        this.addUserId = addUserId == null ? null : addUserId.trim();
+    }
+
+    public String getAddUserName() {
+        return addUserName;
+    }
+
+    public void setAddUserName(String addUserName) {
+        this.addUserName = addUserName == null ? null : addUserName.trim();
+    }
+
+    public Timestamp getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Timestamp modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public String getModifyUserId() {
+        return modifyUserId;
+    }
+
+    public void setModifyUserId(String modifyUserId) {
+        this.modifyUserId = modifyUserId == null ? null : modifyUserId.trim();
+    }
+
+    public String getModifyName() {
+        return modifyName;
+    }
+
+    public void setModifyName(String modifyName) {
+        this.modifyName = modifyName == null ? null : modifyName.trim();
+    }
+
+    public Boolean getDeleteMark() {
+        return deleteMark;
+    }
+
+    public void setDeleteMark(Boolean deleteMark) {
+        this.deleteMark = deleteMark;
+    }
+
+    public String getDeleteName() {
+        return deleteName;
+    }
+
+    public void setDeleteName(String deleteName) {
+        this.deleteName = deleteName == null ? null : deleteName.trim();
+    }
+
+    public Timestamp getDeleteTime() {
+        return deleteTime;
+    }
+
+    public void setDeleteTime(Timestamp deleteTime) {
+        this.deleteTime = deleteTime;
+    }
+}

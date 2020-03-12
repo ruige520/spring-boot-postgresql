@@ -1,0 +1,67 @@
+﻿{
+  "status": 0,
+  "message": "",
+  "total": 10,
+  "data": [
+    {
+      "street": "2019-01-17",
+      "committee": "35",
+      "birthday": "68",
+      "status": "12"
+    },
+    {
+      "street": "2019-01-16",
+      "committee": "26",
+      "birthday": "57",
+      "status": "18"
+    },
+    {
+      "street": "2019-01-15",
+      "committee": "33",
+      "birthday": "55",
+      "status": "14"
+    },
+    {
+      "street": "2019-01-14",
+      "committee": "44",
+      "birthday": "75",
+      "status": "14"
+    },
+    {
+      "street": "2019-01-13",
+      "committee": "38",
+      "birthday": "69",
+      "status": "15"
+    },
+    {
+      "street": "2019-01-12",
+      "committee": "37",
+      "birthday": "59",
+      "status": "12"
+    },
+    {
+      "street": "2019-01-11",
+      "committee": "29",
+      "birthday": "58",
+      "status": "11"
+    },
+    {
+      "street": "2019-01-10",
+      "committee": "35",
+      "birthday": "70",
+      "status": "11"
+    },
+    {
+      "street": "2019-01-09",
+      "committee": "22",
+      "birthday": "60",
+      "status": "9"
+    },
+    {
+      "street": "2019-01-08",
+      "committee": "31",
+      "birthday": "64",
+      "status": "10"
+    }
+  ]
+}

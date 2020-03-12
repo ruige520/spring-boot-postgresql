@@ -1,0 +1,30 @@
+package com.pangu.foying.web.project.back.mapper;
+
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordRefund;
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderRecordRefundExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface OrderMenZhenPayOrderRecordRefundMapper {
+    int countByExample(OrderMenZhenPayOrderRecordRefundExample example);
+
+    int deleteByExample(OrderMenZhenPayOrderRecordRefundExample example);
+
+    int deleteByPrimaryKey(String id);
+
+    int insert(OrderMenZhenPayOrderRecordRefund record);
+
+    int insertSelective(OrderMenZhenPayOrderRecordRefund record);
+
+    List<OrderMenZhenPayOrderRecordRefund> selectByExample(OrderMenZhenPayOrderRecordRefundExample example);
+
+    OrderMenZhenPayOrderRecordRefund selectByPrimaryKey(String id);
+
+    int updateByExampleSelective(@Param("record") OrderMenZhenPayOrderRecordRefund record, @Param("example") OrderMenZhenPayOrderRecordRefundExample example);
+
+    int updateByExample(@Param("record") OrderMenZhenPayOrderRecordRefund record, @Param("example") OrderMenZhenPayOrderRecordRefundExample example);
+
+    int updateByPrimaryKeySelective(OrderMenZhenPayOrderRecordRefund record);
+
+    int updateByPrimaryKey(OrderMenZhenPayOrderRecordRefund record);
+}

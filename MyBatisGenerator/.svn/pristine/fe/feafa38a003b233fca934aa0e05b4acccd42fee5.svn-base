@@ -1,0 +1,30 @@
+package com.pangu.foying.web.project.back.mapper;
+
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderProgress;
+import com.pangu.foying.web.project.back.entity.OrderMenZhenPayOrderProgressExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface OrderMenZhenPayOrderProgressMapper {
+    int countByExample(OrderMenZhenPayOrderProgressExample example);
+
+    int deleteByExample(OrderMenZhenPayOrderProgressExample example);
+
+    int deleteByPrimaryKey(String id);
+
+    int insert(OrderMenZhenPayOrderProgress record);
+
+    int insertSelective(OrderMenZhenPayOrderProgress record);
+
+    List<OrderMenZhenPayOrderProgress> selectByExample(OrderMenZhenPayOrderProgressExample example);
+
+    OrderMenZhenPayOrderProgress selectByPrimaryKey(String id);
+
+    int updateByExampleSelective(@Param("record") OrderMenZhenPayOrderProgress record, @Param("example") OrderMenZhenPayOrderProgressExample example);
+
+    int updateByExample(@Param("record") OrderMenZhenPayOrderProgress record, @Param("example") OrderMenZhenPayOrderProgressExample example);
+
+    int updateByPrimaryKeySelective(OrderMenZhenPayOrderProgress record);
+
+    int updateByPrimaryKey(OrderMenZhenPayOrderProgress record);
+}
