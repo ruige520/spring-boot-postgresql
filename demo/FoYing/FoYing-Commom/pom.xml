@@ -21,7 +21,7 @@
 
         <sqlserver-jdbc.version>7.0.0.jre8</sqlserver-jdbc.version>
 		<mysql-jdbc.version>8.0.18</mysql-jdbc.version>
-		<postgresql-jdbc.version>42.2.5</postgresql-jdbc.version>
+		<postgresql-jdbc.version>42.2.25</postgresql-jdbc.version>
         <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
         <dozer.version>5.4.0</dozer.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
