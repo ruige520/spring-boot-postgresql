@@ -32,7 +32,7 @@
         <shiro.version>1.4.0</shiro.version>
         <jjwt.version>0.9.1</jjwt.version>
         <java_jwt.version>3.7.0</java_jwt.version>
-        <poi.version>4.0.0</poi.version>
+        <poi.version>4.1.1</poi.version>
         <weixin-java-pay.version>3.5.0</weixin-java-pay.version>
         <mybatis.version>3.5.1</mybatis.version>
     </properties>
